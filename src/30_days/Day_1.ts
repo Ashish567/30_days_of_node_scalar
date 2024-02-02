@@ -35,6 +35,7 @@ class Day_1 {
     }
   }
   // Day 2
+
   async append_file_async(fs_path: string, content: string) {
     try {
       const file_path = path.resolve(fs_path);
