@@ -13,7 +13,7 @@ class Day_3 {
   async executeCommand(command: String) {
     try {
       const [comm, ...args] = command?.trim()?.split(" ");
-      const comm_res = spawn(comm, args);
+      const comm_res = spawn(comm, [...args]);
 
       comm_res.stdout.on("data", this.handleOutput("stdout"));
       comm_res.stderr.on("data", this.handleOutput("stderr"));
@@ -23,7 +23,7 @@ class Day_3 {
         comm_res.on("error", (err) => reject(err));
       });
 
-      console.log(`Process ended with ${code}`);
+      console.log(chalk.magentaBright(`Process ended with ${code}`));
     } catch (error: any) {
       console.error(`Error executing command: ${error.message}`);
     }
@@ -31,7 +31,7 @@ class Day_3 {
 
   handleOutput(stream: any) {
     return (data: any) => {
-      console.log(`${stream}:\n${data}`);
+      console.log(chalk.blackBright(`${stream}:\n${data}`));
     };
   }
 }
