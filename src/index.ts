@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
-import { Day_1, Day_3 } from "./30_days";
+import { Day_1, Day_3, Day_4 } from "./30_days";
 import { createReadStream } from "fs";
 import path from "path";
 
@@ -15,9 +15,11 @@ const port = process.env.PORT || 3000;
 //   __dirname + "/../files/output.text",
 //   "\nHi from file.... again.."
 // );
-const day = new Day_3();
-day.executeCommand("ls -la");
-day.executeCommand('echo "Hello, Node.js!"');
+// day.executeCommand("ls -la");
+// day.executeCommand('echo "Hello, Node.js!"');
+const day = new Day_4();
+day.resolvePath(__dirname + "/Users/username/project/folder/file.txt");
+
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
 });
