@@ -9,6 +9,9 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // const day = new Day_1();
 // day.read_file_async(__dirname + "/../files/test.text");
 // day.write_file_async(
@@ -23,7 +26,10 @@ day.resolvePath(__dirname + "/Users/username/project/folder/file.txt");
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
 });
-
+const greetHandler = (req: Request, res: Response) => {
+  res.send(`Hello ${req.query.name}!`);
+};
+app.get("/greet", greetHandler);
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
