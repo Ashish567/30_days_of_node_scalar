@@ -29,6 +29,7 @@
     "@types/jest": "^29.5.11",
     "@types/node": "^20.11.15",
     "jest": "^29.7.0",
+    "lazyrepo": "^0.0.0-alpha.27",
     "nodemon": "^3.0.3",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
